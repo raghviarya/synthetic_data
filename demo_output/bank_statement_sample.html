@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+  @page { size: A4; margin: 20mm; }
+  body { font-family:"DejaVu Sans", Arial, sans-serif; color:#222; font-size:12px; }
+  h1 { font-size:18px; margin-bottom:0; }
+  .header { background:#1E5AA0; color:#fff; padding:10px 16px; border-radius:4px; margin-bottom:12px; }
+  .customer { margin-bottom:12px; }
+  .summary { background:#f5f8fb; padding:10px; margin:12px 0; border:1px solid #ddd; }
+  table { width:100%; border-collapse:collapse; margin-top:8px; }
+  th, td { border:1px solid #ddd; padding:6px; text-align:left; }
+  th { background:#f0f6fb; color:#214a6e; }
+  .right { text-align:right; }
+  .footer { font-size:10px; color:#777; margin-top:16px; }
+  .watermark { position: fixed; top:40%; left:-8%; transform:rotate(-25deg); font-size:56px; color:rgba(200,200,200,0.25); z-index:-1; }
+</style>
+</head>
+<body>
+<div class="watermark">SAMPLE - DEMO</div>
+
+<div class="header">
+  <strong>Demo Bank PLC</strong>
+  <span style="float:right;">Current Account Statement</span>
+</div>
+
+<div class="customer">
+  <strong>Avery J. Morgan</strong><br>
+  12 Demo Lane, Brixton, London, SW9 0DE (SAMPLE)<br>
+  Account number: 00012345 &nbsp;&nbsp; Sort code: 12-34-56<br>
+  Statement period: 01 September 2025 – 30 September 2025
+</div>
+
+<div class="summary">
+  <table style="width:100%; border:none;">
+    <tr><td>Opening balance</td><td class="right">£2,432.15</td></tr>
+    <tr><td>Money in</td><td class="right">£3,275.51</td></tr>
+    <tr><td>Money out</td><td class="right">£1,687.23</td></tr>
+    <tr><td><strong>Closing balance</strong></td><td class="right"><strong>£4,020.43</strong></td></tr>
+  </table>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width:15%">Date</th>
+      <th>Transaction details</th>
+      <th style="width:15%" class="right">Amount</th>
+      <th style="width:15%" class="right">Balance</th>
+    </tr>
+  </thead>
+  <tbody>
+  
+    <tr>
+      <td>01 Sep 2025</td>
+      <td>Opening balance</td>
+      <td class="right">£0.00</td>
+      <td class="right">£2432.15</td>
+    </tr>
+  
+    <tr>
+      <td>05 Sep 2025</td>
+      <td>Coffee Shop</td>
+      <td class="right">-£4.50</td>
+      <td class="right">£2427.65</td>
+    </tr>
+  
+    <tr>
+      <td>06 Sep 2025</td>
+      <td>Grocery Store</td>
+      <td class="right">-£76.20</td>
+      <td class="right">£2351.45</td>
+    </tr>
+  
+    <tr>
+      <td>10 Sep 2025</td>
+      <td>Electric Co. - Direct Debit</td>
+      <td class="right">-£45.00</td>
+      <td class="right">£2306.45</td>
+    </tr>
+  
+    <tr>
+      <td>15 Sep 2025</td>
+      <td>Rent - Standing Order</td>
+      <td class="right">-£1200.00</td>
+      <td class="right">£1106.45</td>
+    </tr>
+  
+    <tr>
+      <td>26 Sep 2025</td>
+      <td>ACME LENDING LTD - Salary</td>
+      <td class="right">£3275.51</td>
+      <td class="right">£4381.96</td>
+    </tr>
+  
+    <tr>
+      <td>30 Sep 2025</td>
+      <td>Closing balance</td>
+      <td class="right">£0.00</td>
+      <td class="right">£4381.96</td>
+    </tr>
+  
+  </tbody>
+</table>
+
+<div class="footer">
+  <p>Some transactions may take a few days to finalise and may appear later than the date you made them.</p>
+  <p>Foreign currency transactions are shown at the rate used when processed. Annual interest rate: 0% (variable).</p>
+  <p>Deposits are protected under the Financial Compensation Scheme (SAMPLE TEXT).</p>
+  <p>Demo Bank PLC is a synthetic entity for demonstration only. This document is not real financial information.</p>
+</div>
+
+</body>
+</html>

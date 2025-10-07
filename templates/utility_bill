@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+  @page { size: A4; margin: 20mm; }
+  body { font-family:"DejaVu Sans", Arial, sans-serif; color:#222; font-size:12px; }
+  h1 { font-size:18px; margin-bottom:0; }
+  .header { background:#1E5AA0; color:#fff; padding:10px 16px; border-radius:4px; margin-bottom:12px; }
+  .two-col { display:flex; justify-content:space-between; margin-bottom:10px; }
+  table { width:100%; border-collapse:collapse; margin-top:6px; }
+  th, td { border:1px solid #ddd; padding:6px; }
+  th { background:#f0f6fb; color:#214a6e; text-align:left; }
+  .right { text-align:right; }
+  .summary { background:#f5f8fb; padding:10px; margin:12px 0; border:1px solid #ddd; }
+  .footer { font-size:10px; color:#777; margin-top:16px; }
+  .watermark { position:fixed; top:40%; left:-10%; transform:rotate(-25deg); font-size:56px; color:rgba(200,200,200,0.25); z-index:-1; }
+</style>
+</head>
+<body>
+<div class="watermark">SAMPLE - DEMO</div>
+
+<div class="header">
+  <strong>Demo Energy Ltd</strong>
+  <span style="float:right;">Account Statement</span>
+</div>
+
+<div class="two-col">
+  <div>
+    <strong>Account holder:</strong><br>
+    {{full_name}}<br>
+    {{address}}<br><br>
+    Account number: {{account_number}}<br>
+    Bill reference: {{bill_reference}}<br>
+    Date: {{bill_date}}
+  </div>
+  <div style="text-align:right;">
+    <strong>Contact us:</strong><br>
+    demoenergy.com/contact<br>
+    help@demoenergy.com<br>
+    0800 123 4567
+  </div>
+</div>
+
+<div class="summary">
+  <table style="width:100%; border:none;">
+    <tr><td>Previous balance</td><td class="right">£{{previous_balance}}</td></tr>
+    <tr><td>New charges ({{period_start}} – {{period_end}})</td><td class="right">£{{new_charges}}</td></tr>
+    <tr><td>Total amount due</td><td class="

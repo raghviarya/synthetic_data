@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  @page { size: A4; margin: 20mm; }
+  body { font-family: "DejaVu Sans", Arial, sans-serif; color:#222; }
+  .header { background:#1E5AA0; color:#fff; padding:10px 16px; border-radius:4px; }
+  .row { display:flex; justify-content:space-between; margin-top:10px; }
+  .col { width:48%; }
+  h1 { margin: 8px 0 6px; font-size:18px; }
+  table { width:100%; border-collapse:collapse; margin-top:12px; }
+  th, td { border:1px solid #ddd; padding:8px; font-size:12px; }
+  th { background:#f0f6fb; color:#214a6e; text-align:left; }
+  .small { font-size:11px; color:#666; }
+  .watermark { position: fixed; top: 45%; left: -5%; transform: rotate(-25deg); color: rgba(200,200,200,0.35); font-size:48px; z-index: -1; }
+  .footer { position: fixed; bottom: 10mm; width: calc(100% - 40mm); text-align:center; font-size:10px; color:#999; }
+</style>
+</head>
+<body>
+<div class="watermark">SAMPLE - DEMO</div>
+<div class="header">
+  <strong>ACME LENDING LTD</strong> <span style="float:right; font-size:12px;">SAMPLE DOCUMENT</span>
+</div>
+
+<h1>PAYSLIP</h1>
+
+<div class="row">
+  <div class="col">
+    <div class="small">Employee</div>
+    <strong>Avery J. Morgan</strong><br>
+    <div class="small">Employee ID</div><div>EMP-0001</div>
+    <div class="small">NINO</div><div>GB-NINO-DEMO-1234</div>
+  </div>
+  <div class="col">
+    <div class="small">Employer</div>
+    <strong>Acme Lending Ltd</strong><br>
+    <div class="small">PAYE ref</div><div>DEMO/PAYE/123</div>
+    <div class="small">Period</div><div>July 2025 &nbsp; &nbsp; Pay date: 31/07/2025</div>
+  </div>
+</div>
+
+<table>
+  <thead><tr><th>Description</th><th style="width:140px;">Amount</th><th>Notes</th></tr></thead>
+  <tbody>
+    <tr><td>Basic pay</td><td style="text-align:right">£3500.00</td><td></td></tr>
+    <tr><td>Deductions - Income Tax</td><td style="text-align:right">£420.00</td><td></td></tr>
+    <tr><td>Deductions - National Insurance</td><td style="text-align:right">£297.50</td><td></td></tr>
+    <tr><td><strong>Net pay</strong></td><td style="text-align:right"><strong>£2782.50</strong></td><td></td></tr>
+  </tbody>
+</table>
+
+<div style="margin-top:12px;" class="small">
+  Bank: Demo Bank PLC | Account: ****1234 | Sort code: 12-34-56
+</div>
+
+<div class="footer small">This is a SAMPLE DEMO document - not for official use</div>
+</body>
+</html>

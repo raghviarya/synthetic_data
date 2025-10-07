@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+  @page { size: A4; margin: 15mm; }
+  body { font-family: "DejaVu Sans", Arial, sans-serif; color:#222; font-size:11.5px; }
+  h1, h2, h3 { color:#1E5AA0; margin-bottom:4px; }
+  h1 { font-size:18px; }
+  h2 { font-size:14px; border-bottom:1px solid #ccc; padding-bottom:2px; margin-top:12px; }
+  .muted { color:#666; font-size:10.5px; }
+  table { width:100%; border-collapse:collapse; margin-top:6px; }
+  th, td { border:1px solid #ddd; padding:5px; text-align:left; vertical-align:top; }
+  th { background:#f6f9fc; color:#1E5AA0; }
+  .right { text-align:right; }
+  .ok { background:#e8f7ea; }
+  .late { background:#fff3cd; }
+  .miss { background:#f8d7da; }
+  .barwrap { background:#e9ecef; height:10px; border-radius:5px; overflow:hidden; }
+  .bar { height:100%; background:linear-gradient(90deg,#d9534f,#f0ad4e,#5cb85c); }
+  .grid24 { display:grid; grid-template-columns: repeat(24,1fr); gap:1px; }
+  .cell { text-align:center; font-size:9px; padding:2px; border:1px solid #eee; }
+  .watermark { position: fixed; top:45%; left:-10%; transform:rotate(-25deg); color:rgba(200,200,200,0.25); font-size:60px; z-index:-1; }
+  .section { page-break-inside:avoid; margin-bottom:12px; }
+  .footer { font-size:10px; color:#777; text-align:center; margin-top:16px; }
+</style>
+</head>
+<body>
+<div class="watermark">SAMPLE - DEMO</div>
+
+<h1>Demo Credit Bureau — Consumer Credit Report</h1>
+<p class="muted">Report ID: DCR-2025-10-CR12345 | Generated: 07 Oct 2025 23:34</p>
+
+<!-- Score -->
+<h2>Credit Score Overview</h2>
+<table>
+  <tr>
+    <th>Score</th><td><strong>702</strong> / 999</td>
+    <th>Band</th><td>Fair</td>
+    <th>Percentile</th><td>58%</td>
+  </tr>
+  <tr>
+    <th>Interpretation</th><td colspan="5">Moderate credit risk. Accounts well maintained with low default risk.</td>
+  </tr>
+</table>
+<div class="muted">Factors affecting your score:</div>
+<ul>
+  <li>Short overall credit history (&lt;3 years)</li><li>One recent late payment reported</li><li>Moderate credit utilisation (44%)</li><li>Stable employment and address history</li>
+</ul>
+
+<!-- Identity verification -->
+<h2>Identity & Verification</h2>
+<table>
+  <tr><th>Full name</th><td>Avery J. Morgan</td><th>Date of birth</th><td>1993-04-18</td></tr>
+  <tr><th>Address</th><td colspan="3">12 Demo Lane, Brixton, London, SW9 0DE</td></tr>
+  <tr><th>Postcode</th><td>SW9 0DE</td><th>National ID</th><td>GB-NINO-DEMO-1234</td></tr>
+  <tr><th>Electoral roll confirmed</th><td>Confirmed at current address</td><th>Time at address</th><td>2 years 4 months</td></tr>
+</table>
+
+<!-- Financial associations -->
+<h2>Financial Associations</h2>
+
+<table>
+  <thead><tr><th>Name</th><th>Relation</th><th>Shared account</th><th>Status</th></tr></thead>
+  <tbody>
+  
+    <tr><td>Jamie Morgan</td><td>Spouse</td><td>Joint mortgage with Demo Mortgage Bank</td><td>Active</td></tr>
+  
+  </tbody>
+</table>
+
+
+<!-- Utilisation summary -->
+<h2>Credit Utilisation Summary</h2>
+<table>
+  <tr><th>Total credit limit</th><td class="right">£8,000</td><th>Total balance</th><td class="right">£3,520</td></tr>
+  <tr><th>Overall utilisation</th><td colspan="3">
+    <div class="barwrap"><div class="bar" style="width:44%;"></div></div>
+    44%
+  </td></tr>
+  <tr><th>Average account age</th><td>2 years 3 months</td><th>On-time payment rate</th><td>97%</td></tr>
+</table>
+
+<!-- Active accounts -->
+<h2>Open Credit Accounts</h2>
+<table>
+  <thead>
+    <tr><th>Creditor</th><th>Type</th><th>Opened</th><th>Limit (£)</th><th>Balance (£)</th><th>High balance (£)</th><th>Status</th><th>24-month Payment History</th></tr>
+  </thead>
+  <tbody>
+  
+    <tr>
+      <td>Demo Bank PLC</td><td>Credit Card</td><td>14 Mar 2023</td>
+      <td class="right">4,000</td><td class="right">1,760</td>
+      <td class="right">2,100</td><td>Open — Active</td>
+      <td><div class="grid24">
+        
+          <div class="cell ok" title="Nov OK">✔</div>
+        
+          <div class="cell ok" title="Dec OK">✔</div>
+        
+          <div class="cell ok" title="Jan OK">✔</div>
+        
+          <div class="cell ok" title="Feb OK">✔</div>
+        
+          <div class="cell ok" title="Mar OK">✔</div>
+        
+          <div class="cell ok" title="Apr OK">✔</div>
+        
+          <div class="cell ok" title="May OK">✔</div>
+        
+          <div class="cell ok" title="Jun OK">✔</div>
+        
+          <div class="cell ok" title="Jul OK">✔</div>
+        
+          <div class="cell ok" title="Aug OK">✔</div>
+        
+          <div class="cell ok" title="Sep OK">✔</div>
+        
+          <div class="cell ok" title="Oct OK">✔</div>
+        
+          <div class="cell ok" title="Nov OK">✔</div>
+        
+          <div class="cell ok" title="Dec OK">✔</div>
+        
+          <div class="cell ok" title="Jan OK">✔</div>
+        
+          <div class="cell ok" title="Feb OK">✔</div>
+        
+          <div class="cell ok" title="Mar OK">✔</div>
+        
+          <div class="cell ok" title="Apr OK">✔</div>
+        
+          <div class="cell ok" title="May OK">✔</div>
+        
+          <div class="cell ok" title="Jun OK">✔</div>
+        
+          <div class="cell ok" title="Jul OK">✔</div>
+        
+          <div class="cell late" title="Aug 1">1</div>
+        
+          <div class="cell ok" title="Sep OK">✔</div>
+        
+          <div class="cell ok" title="Oct OK">✔</div>
+        
+      </div></td>
+    </tr>
+  
+    <tr>
+      <td>AutoFinance Ltd</td><td>Car Loan</td><td>02 Sep 2022</td>
+      <td class="right">—</td><td class="right">3,200</td>
+      <td class="right">4,000</td><td>Open — Paying as agreed</td>
+      <td><div class="grid24">
+        
+          <div class="cell ok" title="Nov OK">✔</div>
+        
+          <div class="cell ok" title="Dec OK">✔</div>
+        
+          <div class="cell ok" title="Jan OK">✔</div>
+        
+          <div class="cell ok" title="Feb OK">✔</div>
+        
+          <div class="cell ok" title="Mar OK">✔</div>
+        
+          <div class="cell ok" title="Apr OK">✔</div>
+        
+          <div class="cell ok" title="May OK">✔</div>
+        
+          <div class="cell ok" title="Jun OK">✔</div>
+        
+          <div class="cell ok" title="Jul OK">✔</div>
+        
+          <div class="cell ok" title="Aug OK">✔</div>
+        
+          <div class="cell ok" title="Sep OK">✔</div>
+        
+          <div class="cell ok" title="Oct OK">✔</div>
+        
+          <div class="cell ok" title="Nov OK">✔</div>
+        
+          <div class="cell ok" title="Dec OK">✔</div>
+        
+          <div class="cell ok" title="Jan OK">✔</div>
+        
+          <div class="cell ok" title="Feb OK">✔</div>
+        
+          <div class="cell ok" title="Mar OK">✔</div>
+        
+          <div class="cell ok" title="Apr OK">✔</div>
+        
+          <div class="cell ok" title="May OK">✔</div>
+        
+          <div class="cell ok" title="Jun OK">✔</div>
+        
+          <div class="cell ok" title="Jul OK">✔</div>
+        
+          <div class="cell ok" title="Aug OK">✔</div>
+        
+          <div class="cell ok" title="Sep OK">✔</div>
+        
+          <div class="cell ok" title="Oct OK">✔</div>
+        
+      </div></td>
+    </tr>
+  
+  </tbody>
+</table>
+
+<!-- Closed accounts -->
+<h2>Closed Accounts</h2>
+<table>
+  <thead><tr><th>Creditor</th><th>Type</th><th>Opened</th><th>Closed</th><th>Status</th><th>Settlement</th></tr></thead>
+  <tbody>
+  
+    <tr><td>Retail Card Co.</td><td>Store Card</td><td>Feb 2020</td><td>Jan 2024</td><td>Settled</td><td>Paid in full</td></tr>
+  
+  </tbody>
+</table>
+
+<!-- Defaults -->
+<h2>Default & Delinquency Summary</h2>
+<table>
+  <tr><th>Accounts with missed payments</th><td>1</td><th>Most severe status</th><td>1 month late</td></tr>
+  <tr><th>Defaults in last 6 years</th><td>0</td><th>CCJs in last 6 years</th><td>0</td></tr>
+</table>
+
+<!-- Public records -->
+<h2>Public Records</h2>
+
+<p class="muted">No public records found.</p>
+
+
+<!-- Credit searches -->
+<h2>Credit Searches (last 12 months)</h2>
+<table>
+  <thead><tr><th>Date</th><th>Organisation</th><th>Purpose</th></tr></thead>
+  <tbody>
+  
+    <tr><td>26 Sep 2025</td><td>Acme Lending Ltd</td><td>Loan application</td></tr>
+  
+    <tr><td>03 Jun 2025</td><td>TelecomsCo</td><td>Mobile contract</td></tr>
+  
+    <tr><td>12 Jan 2025</td><td>InsuranceCo</td><td>Insurance quote</td></tr>
+  
+  </tbody>
+</table>
+
+<!-- Linked addresses -->
+<h2>Linked Addresses</h2>
+<table>
+  <thead><tr><th>Address</th><th>From</th><th>To</th></tr></thead>
+  <tbody>
+  
+    <tr><td>Flat 2, 8 Example Road, Clapham, London SW4 8AA</td><td>2019</td><td>2023</td></tr>
+  
+    <tr><td>12 Demo Lane, Brixton, London SW9 0DE</td><td>2023</td><td>Present</td></tr>
+  
+  </tbody>
+</table>
+
+<!-- Score commentary -->
+<h2>Risk Narrative & Analysis</h2>
+<p>The subject presents a moderate risk profile. Total revolving credit limit is £8,000 with utilisation at 44%. Average account age 2 years 3 months. Payment history shows 1 late payment in 24 months, otherwise consistent on-time performance. Employment and address tenure are stable. No CCJs, bankruptcies, or defaults recorded. Score factors indicate recent credit activity but overall reliable management of obligations.</p>
+
+<div class="footer">SAMPLE document — for demonstration only. © Demo Credit Bureau 2025.</div>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+  @page { size: A4; margin: 20mm; }
+  body { font-family: "DejaVu Sans", Arial, sans-serif; color:#222; font-size:12px; }
+  h1 { font-size:18px; margin-bottom:0; }
+  .header { background:#1E5AA0; color:#fff; padding:10px 16px; border-radius:4px; margin-bottom:12px; }
+  .two-col { display:flex; justify-content:space-between; margin-bottom:10px; }
+  .section { margin-top:16px; }
+  table { width:100%; border-collapse:collapse; margin-top:6px; }
+  th, td { border:1px solid #ddd; padding:6px; text-align:left; }
+  th { background:#f0f6fb; color:#214a6e; }
+  .right { text-align:right; }
+  .footer { font-size:10px; color:#777; margin-top:16px; }
+  .watermark { position:fixed; top:40%; left:-10%; transform:rotate(-25deg); font-size:56px; color:rgba(200,200,200,0.25); z-index:-1; }
+</style>
+</head>
+<body>
+<div class="watermark">SAMPLE - DEMO</div>
+
+<div class="header">
+  <strong>Acme Lending Ltd (SAMPLE)</strong>
+  <span style="float:right;">PAYSLIP</span>
+</div>
+
+<div class="two-col">
+  <div>
+    <strong>Avery J. Morgan</strong><br>
+    12 Demo Lane, Brixton, London, SW9 0DE<br>
+    NI Number: GB-NINO-DEMO-1234<br>
+    NI Category: A<br>
+    Employee ID: EMP-0001
+  </div>
+  <div>
+    <strong>Paid by:</strong><br>
+    Acme Lending Ltd (SAMPLE)<br>
+    Tax Code: 1257L<br>
+    Tax Basis: Cumulative<br>
+    Pay Period: 01/08/2025 - 31/08/2025 (Tax Month 5)<br>
+    Payment Date: 28/08/2025
+  </div>
+</div>
+
+<div class="section">
+  <table>
+    <tr><th>Gross Pay</th><td class="right">£4,333.33</td></tr>
+    <tr><th>Net Pay</th><td class="right">£3,275.31</td></tr>
+    <tr><th>Total Pay (this period)</th><td class="right">£3,275.31</td></tr>
+  </table>
+</div>
+
+<div class="section">
+  <h2>Earnings</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Description</th><th class="right">Quantity</th><th class="right">Rate</th><th class="right">This Pay (£)</th><th class="right">YTD (£)</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td>Public Holiday (Summer Bank Holiday - 25/08/2025)</td>
+        <td class="right">8.00</td>
+        <td class="right">200.00</td>
+        <td class="right">200.00</td>
+        <td class="right">200.00</td>
+      </tr>
+      
+      <tr>
+        <td>Regular Hours</td>
+        <td class="right"></td>
+        <td class="right"></td>
+        <td class="right">4,133.33</td>
+        <td class="right">20,666.65</td>
+      </tr>
+      
+      <tr>
+        <td>Other Previous Earnings</td>
+        <td class="right"></td>
+        <td class="right"></td>
+        <td class="right">800.00</td>
+        <td class="right">800.00</td>
+      </tr>
+      
+      <tr><th colspan="3" class="right">TOTAL</th><th class="right">4,333.33</th><th class="right">21,666.65</th></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="section">
+  <h2>Deductions</h2>
+  <table>
+    <thead><tr><th>Description</th><th class="right">This Pay (£)</th><th class="right">YTD (£)</th></tr></thead>
+    <tbody>
+      
+      <tr>
+        <td>PAYE</td>
+        <td class="right">620.40</td>
+        <td class="right">3,101.60</td>
+      </tr>
+      
+      <tr>
+        <td>Employee National Insurance Contribution - A</td>
+        <td class="right">254.17</td>
+        <td class="right">1,270.85</td>
+      </tr>
+      
+      <tr>
+        <td>Pension Contribution</td>
+        <td class="right">183.45</td>
+        <td class="right">917.25</td>
+      </tr>
+      
+      <tr><th class="right">TOTAL</th><th class="right">1,058.02</th><th class="right">5,289.70</th></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="section">
+  <h2>Payment Details</h2>
+  <table>
+    <tr><th>Method</th><th class="right">Amount (£)</th></tr>
+    <tr><td>Electronic Transfer</td><td class="right">3,275.31</td></tr>
+  </table>
+</div>
+
+<div class="section">
+  <h2>Employer Contributions</h2>
+  <table>
+    <thead><tr><th>Description</th><th class="right">This Pay (£)</th><th class="right">YTD (£)</th></tr></thead>
+    <tbody>
+      
+      <tr>
+        <td>Employer National Insurance Contribution - A</td>
+        <td class="right">587.45</td>
+        <td class="right">2,937.25</td>
+      </tr>
+      
+      <tr><th class="right">TOTAL</th><th class="right">587.45</th><th class="right">2,937.25</th></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="footer">
+  This is a SAMPLE payslip for demonstration only. It does not represent a real payment or employment record.
+</div>
+
+</body>
+</html>

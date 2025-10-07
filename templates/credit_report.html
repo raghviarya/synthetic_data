@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+  @page { size: A4; margin: 18mm; }
+  body { font-family: "DejaVu Sans", Arial, sans-serif; color:#222; font-size:11px; line-height:1.25; }
+  h1 { color:#1E5AA0; font-size:20px; margin:0 0 6px 0; }
+  h2 { color:#1E5AA0; font-size:14px; margin:12px 0 6px 0; }
+  .muted { color:#666; font-size:11px; }
+  .header { display:flex; justify-content:space-between; align-items:center; padding:10px; background:#eef6fb; border-radius:6px; border:1px solid #d7eaf6; }
+  .watermark { position: fixed; top:45%; left:-8%; transform:rotate(-25deg); color:rgba(200,200,200,0.20); font-size:64px; z-index:-1; }
+  table { width:100%; border-collapse:collapse; margin-top:6px; font-size:11px; }
+  th, td { border:1px solid #e2e6ea; padding:6px; vertical-align:top; }
+  th { background:#f6fbff; color:#1e5aa0; text-align:left; }
+  .right { text-align:right; }
+  .score-box { display:flex; gap:14px; align-items:center; margin-top:8px; }
+  .score-num { font-size:40px; font-weight:700; color:#0b3b66; }
+  .score-bars { width:420px; }
+  .barwrap { background:#eef4fb; height:14px; border-radius:8px; overflow:hidden; border:1px solid #d9e8f6; }
+  .bar { height:100%; background:linear-gradient(90deg,#d9534f,#f0ad4e,#5cb85c); }
+  .sparkline { display:flex; gap:4px; align-items:flex-end; height:44px; margin-top:8px; }
+  .sparkline div { width:16px; background:#9ec5fe; border-radius:3px 3px 0 0; }
+  .section { page-break-inside: avoid; margin-bottom:12px; }
+  .account-header { background:#fbfcfd; border:1px solid #eef4f9; padding:8px; border-radius:6px; margin-bottom:6px; }
+  .payment-grid { display:grid; grid-template-columns: repeat(24, 1fr); gap:2px; margin-top:6px; }
+  .cell { text-align:center; font-size:9px; padding:3px; border:1px solid #eee; }
+  .ok { background:#e9f7ec; }
+  .late1 { background:#fff4d6; }
+  .late2 { background:#ffe6d6; }
+  .late3 { background:#ffd1d6; }
+  .miss { background:#f8d7da; }
+  .small { font-size:10px; color:#666; }
+  .glossary { font-size:10px; color:#333; }
+  .footer { font-size:10px; color:#666; text-align:center; margin-top:10px; }
+  .page-break { page-break-before: always; }
+</style>
+</head>
+<body>
+<div class="watermark">SAMPLE - DEMO</div>
+
+<!-- Cover page -->
+<div style="text-align:left;">
+  <div class="header">
+    <div>
+      <div style="font-weight:700;">Demo Credit Bureau — Consumer Credit Report (SAMPLE)</div>
+      <div class="muted">Report ID: {{report_id}} • Generated: {{report_datetime}}</div>
+    </div>
+    <div class="muted">For demonstration only — not a real bureau file</div>
+  </div>
+
+  <h1>Credit Summary</h1>
+
+  <div class="score-box">
+    <div>
+      <div class="small">Credit score</div>
+      <div class="score-num">{{score}} <span style="font-size:14px;">/ {{score_max}}</span></div>
+      <div class="muted">Band: <strong>{{band}}</strong> • Percentile: {{percentile}}%</div>
+    </div>
+    <div class="score-bars">
+      <div class="small">Score range</div>
+      <div class="barwrap">
+        <div class="bar" style="width:{{(score/score_max)*100}}%"></div>
+      </div>
+      <div class="small" style="margin-top:6px;">{{score_comment}}</div>
+      <div class="small">Key score factors:</div>
+      <ul class="small">
+        {% for f in score_factors %}<li>{{f}}</li>{% endfor %}
+      </ul>
+    </div>
+  </div>
+
+  <div style="margin-top:10px;">
+    <div class="small">12-month score history</div>
+    <div class="sparkline">
+      {% for p in score_history %}
+        <div style="height: {{ (p.score / score_max) * 40 }}px" title="{{p.month}}: {{p.score}}"></div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Key statistics</h2>
+    <table>
+      <tr>
+        <th>Total open accounts</th><td class="right">{{stats.total_open_accounts}}</td>
+        <th>Total closed accounts (last 2 years)</th><td class="right">{{stats.closed_accounts_recent}}</td>
+      </tr>
+      <tr>
+        <th>Total credit limit (£)</th><td class="right">£{{stats.total_limit}}</td>
+        <th>Total outstanding balance (£)</th><td class="right">£{{stats.total_balance}}</td>
+      </tr>
+      <tr>
+        <th>Overall utilisation</th><td class="right">{{stats.utilisation}}%</td>
+        <th>On-time payment rate</th><td class="right">{{stats.on_time_rate}}%</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Consumer details</h2>
+    <table>
+      <tr><th>Full name</th><td>{{full_name}}</td><th>Date of birth</th><td>{{dob}}</td></tr>
+      <tr><th>Current address</th><td colspan="3">{{address}}</td></tr>
+      <tr><th>Employer</th><td>{{employer}}</td><th>Time in employment</th><td>{{employment_tenure}}</td></tr>
+      <tr><th>Electoral roll</th><td>{{electoral_roll}}</td><th>Linked addresses</th><td>{{linked_addresses_count}}</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- Accounts (each account may expand to its own area) -->
+{% for a in open_accounts %}
+  <div class="section">
+    <div class="account-header">
+      <strong>{{a.creditor}}</strong> — <span class="small">{{a.type}}</span>
+      <div class="muted" style="float:right;">Opened: {{a.opened}} • Status: {{a.status}}</div>
+      <div class="small" style="margin-top:6px;">Account reference: {{a.ref}} • Terms: {{a.terms}}</div>
+    </div>
+    <table>
+      <tr><th>Limit (£)</th><td class="right">{{a.limit}}</td><th>Current balance (£)</th><td class="right">{{a.balance}}</td></tr>
+      <tr><th>High balance (£)</th><td class="right">{{a.high_balance}}</td><th>Monthly repayment</th><td class="right">{{a.repayment}}</td></tr>
+    </table>
+
+    <div style="margin-top:8px;">
+      <div class="small">24-month payment history (most recent month on the right)</div>
+      <div class="payment-grid">
+        {% for m in a.history %}
+          <div class="cell {% if m.value == 'OK' %}ok{% elif m.value == '1' %}late1{% elif m.value == '2' %}late2{% elif m.value == '3' %}late3{% else %}miss{% endif %}" title="{{m.label}}">
+            {% if m.value == 'OK' %}✔{% elif m.value == '1' %}1{% elif m.value == '2' %}2{% elif m.value == '3' %}3{% else %}✖{% endif %}
+          </div>
+        {% endfor %}
+      </div>
+      <div class="small" style="margin-top:6px;">Legend: ✔ = on-time, 1 = 30 days late, 2 = 60 days, 3 = 90+ days, ✖ = default/missed</div>
+    </div>
+
+    <div style="margin-top:8px;">
+      <div class="small">Notes:</div>
+      <div class="small">{{a.notes}}</div>
+    </div>
+  </div>
+{% endfor %}
+
+<div class="page-break"></div>
+
+<!-- Closed accounts -->
+<h2>Closed accounts</h2>
+<table>
+  <thead><tr><th>Creditor</th><th>Type</th><th>Opened</th><th>Closed</th><th>Status</th><th>Settlement</th></tr></thead>
+  <tbody>
+    {% for a in closed_accounts %}
+      <tr>
+        <td>{{a.creditor}}</td><td>{{a.type}}</td><td>{{a.opened}}</td><td>{{a.closed}}</td><td>{{a.status}}</td><td>{{a.settlement}}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<div class="section">
+  <h2>Public records & enforcement</h2>
+  {% if public_records|length == 0 %}
+    <p class="muted">No public records (CCJs, bankruptcies, IVAs) found in the reporting period.</p>
+  {% else %}
+    <table>
+      <thead><tr><th>Type</th><th>Date</th><th>Authority</th><th>Amount (£)</th><th>Status</th></tr></thead>
+      <tbody>
+        {% for r in public_records %}
+          <tr><td>{{r.type}}</td><td>{{r.date}}</td><td>{{r.authority}}</td><td class="right">{{r.amount}}</td><td>{{r.status}}</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% endif %}
+</div>
+
+<h2>Recent credit searches</h2>
+<table>
+  <thead><tr><th>Date</th><th>Organisation</th><th>Purpose</th></tr></thead>
+  <tbody>
+    {% for s in searches %}
+      <tr><td>{{s.date}}</td><td>{{s.org}}</td><td>{{s.purpose}}</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<div class="section">
+  <h2>Financial associations</h2>
+  {% if financial_associations|length == 0 %}
+    <p class="muted">No financial associates found.</p>
+  {% else %}
+    <table>
+      <thead><tr><th>Name</th><th>Relation</th><th>Associated accounts</th><th>Status</th></tr></thead>
+      <tbody>
+        {% for fa in financial_associations %}
+          <tr><td>{{fa.name}}</td><td>{{fa.relation}}</td><td>{{fa.accounts}}</td><td>{{fa.status}}</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% endif %}
+</div>
+
+<div class="section">
+  <h2>Risk narrative</h2>
+  <p>{{risk_summary}}</p>
+</div>
+
+<div class="page-break"></div>
+
+<!-- Appendix -->
+<h2>Glossary & How to read this report</h2>
+<div class="glossary">
+  <p><strong>Score:</strong> Numeric value representing the bureau's assessment of risk (higher = lower risk).</p>
+  <p><strong>Utilisation:</strong> Total revolving balances divided by total revolving limits (expressed as %).</p>
+  <p><strong>Payment history:</strong> A 24-month grid showing on-time/late payments for each account. Repeated late payments and missed payments increase risk.</p>
+  <p><strong>Public records:</strong> County Court Judgements (CCJs), bankruptcy orders, Individual Voluntary Arrangements (IVAs) or similar legal filings.</p>
+  <p><strong>How to dispute:</strong> This is a synthetic demo. In a real report contact the data provider or the creditor listed for that account.</p>
+</div>
+
+<div class="footer">SAMPLE synthetic credit report — Demo Credit Bureau. Not a real consumer credit file.</div>
+</body>
+</html>

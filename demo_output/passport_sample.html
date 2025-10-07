@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+  @page { size: A4; margin: 20mm; }
+  body { font-family: "DejaVu Sans", Arial, sans-serif; color:#222; }
+  .header { background:#cfcfcf; padding:6px 12px; border-radius:4px; margin-bottom:12px; }
+  .photo { width:140px; height:160px; background:#eee; border:1px solid #ccc; text-align:center; line-height:160px; color:#777; }
+  .two-col { display:flex; gap:20px; }
+  .field { margin:6px 0; }
+  .label { font-size:11px; color:#555; }
+  .value { font-size:14px; font-weight:700; }
+  .mrz { font-family: "OCR-B", monospace; font-size:14px; letter-spacing:2px; background:#f5f5f5; padding:8px; margin-top:18px; }
+  .watermark { position: fixed; top: 40%; left: -8%; transform: rotate(-25deg); color: rgba(180,180,180,0.35); font-size:56px; z-index:-1; }
+  .note { font-size:10px; color:#777; margin-top:8px; }
+</style>
+</head>
+<body>
+<div class="watermark">SAMPLE - DEMO ONLY</div>
+
+<div class="header"><strong>UNITED KINGDOM (SAMPLE)</strong> — Passport (SAMPLE)</div>
+
+<div class="two-col">
+  <div style="flex:1">
+    <div class="field"><div class="label">Surname / Family Name</div><div class="value">Morgan</div></div>
+    <div class="field"><div class="label">Given Names</div><div class="value">Avery J.</div></div>
+    <div class="field"><div class="label">Nationality</div><div class="value">British (SAMPLE)</div></div>
+    <div class="field"><div class="label">Date of birth</div><div class="value">1993-04-18</div></div>
+    <div class="field"><div class="label">Place of birth</div><div class="value">London, GBR</div></div>
+    <div class="field"><div class="label">Sex</div><div class="value">F</div></div>
+    <div class="field"><div class="label">Passport number</div><div class="value">GB00DEMO456</div></div>
+    <div class="field"><div class="label">Issuing authority</div><div class="value">HM Passport Office (SAMPLE)</div></div>
+    <div class="field"><div class="label">Date of issue</div><div class="value">2023-06-13</div></div>
+    <div class="field"><div class="label">Date of expiry</div><div class="value">2033-06-12</div></div>
+  </div>
+
+  <div style="width:220px">
+    <div class="photo">PHOTO</div>
+    <div class="field" style="margin-top:8px"><div class="label">Signature</div><div class="value">(signature)</div></div>
+  </div>
+</div>
+
+<div class="mrz">
+  P&lt;GBRMORGAN&lt;&lt;AVERY&lt;J&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;<br/>
+  GB00DEMO4561234567890&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;00
+</div>
+
+<div class="note">This is a synthetic SAMPLE passport-style page for demo use only. Not a legal identity document.</div>
+</body>
+</html>

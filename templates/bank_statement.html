@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+  @page { size: A4; margin: 20mm; }
+  body { font-family:"DejaVu Sans", Arial, sans-serif; color:#222; font-size:12px; }
+  h1 { font-size:18px; margin-bottom:0; }
+  .header { background:#1E5AA0; color:#fff; padding:10px 16px; border-radius:4px; margin-bottom:12px; }
+  .customer { margin-bottom:12px; }
+  .summary { background:#f5f8fb; padding:10px; margin:12px 0; border:1px solid #ddd; }
+  table { width:100%; border-collapse:collapse; margin-top:8px; }
+  th, td { border:1px solid #ddd; padding:6px; text-align:left; }
+  th { background:#f0f6fb; color:#214a6e; }
+  .right { text-align:right; }
+  .footer { font-size:10px; color:#777; margin-top:16px; }
+  .watermark { position: fixed; top:40%; left:-8%; transform:rotate(-25deg); font-size:56px; color:rgba(200,200,200,0.25); z-index:-1; }
+</style>
+</head>
+<body>
+<div class="watermark">SAMPLE - DEMO</div>
+
+<div class="header">
+  <strong>Demo Bank PLC</strong>
+  <span style="float:right;">Current Account Statement</span>
+</div>
+
+<div class="customer">
+  <strong>{{full_name}}</strong><br>
+  {{address}}<br>
+  Account number: {{account_number}} &nbsp;&nbsp; Sort code: {{sort_code}}<br>
+  Statement period: {{period_start}} – {{period_end}}
+</div>
+
+<div class="summary">
+  <table style="width:100%; border:none;">
+    <tr><td>Opening balance</td><td class="right">£{{opening_balance}}</td></tr>
+    <tr><td>Money in</td><td class="right">£{{money_in}}</td></tr>
+    <tr><td>Money out</td><td class="right">£{{money_out}}</td></tr>
+    <tr><td><strong>Closing balance</strong></td><td class="right"><strong>£{{closing_balance}}</strong></td></tr>
+  </table>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width:15%">Date</th>
+      <th>Transaction details</th>
+      <th style="width:15%" class="right">Amount</th>
+      <th style="width:15%" class="right">Balance</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for tx in transactions %}
+    <tr>
+      <td>{{tx.date}}</td>
+      <td>{{tx.description}}</td>
+      <td class="right">{% if tx.amount < 0 %}-{% endif %}£{{'%.2f'|format(tx.amount|abs)}}</td>
+      <td class="right">£{{'%.2f'|format(tx.balance)}}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+<div class="footer">
+  <p>Some transactions may take a few days to finalise and may appear later than the date you made them.</p>
+  <p>Foreign currency transactions are shown at the rate used when processed. Annual interest rate: 0% (variable).</p>
+  <p>Deposits are protected under the Financial Compensation Scheme (SAMPLE TEXT).</p>
+  <p>Demo Bank PLC is a synthetic entity for demonstration only. This document is not real financial information.</p>
+</div>
+
+</body>
+</html>

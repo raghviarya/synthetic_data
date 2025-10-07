@@ -1,0 +1,1665 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+  @page { size: A4; margin: 18mm; }
+  body { font-family: "DejaVu Sans", Arial, sans-serif; color:#222; font-size:11px; line-height:1.25; }
+  h1 { color:#1E5AA0; font-size:20px; margin:0 0 6px 0; }
+  h2 { color:#1E5AA0; font-size:14px; margin:12px 0 6px 0; }
+  .muted { color:#666; font-size:11px; }
+  .header { display:flex; justify-content:space-between; align-items:center; padding:10px; background:#eef6fb; border-radius:6px; border:1px solid #d7eaf6; }
+  .watermark { position: fixed; top:45%; left:-8%; transform:rotate(-25deg); color:rgba(200,200,200,0.20); font-size:64px; z-index:-1; }
+  table { width:100%; border-collapse:collapse; margin-top:6px; font-size:11px; }
+  th, td { border:1px solid #e2e6ea; padding:6px; vertical-align:top; }
+  th { background:#f6fbff; color:#1e5aa0; text-align:left; }
+  .right { text-align:right; }
+  .score-box { display:flex; gap:14px; align-items:center; margin-top:8px; }
+  .score-num { font-size:40px; font-weight:700; color:#0b3b66; }
+  .score-bars { width:420px; }
+  .barwrap { background:#eef4fb; height:14px; border-radius:8px; overflow:hidden; border:1px solid #d9e8f6; }
+  .bar { height:100%; background:linear-gradient(90deg,#d9534f,#f0ad4e,#5cb85c); }
+  .sparkline { display:flex; gap:4px; align-items:flex-end; height:44px; margin-top:8px; }
+  .sparkline div { width:16px; background:#9ec5fe; border-radius:3px 3px 0 0; }
+  .section { page-break-inside: avoid; margin-bottom:12px; }
+  .account-header { background:#fbfcfd; border:1px solid #eef4f9; padding:8px; border-radius:6px; margin-bottom:6px; }
+  .payment-grid { display:grid; grid-template-columns: repeat(24, 1fr); gap:2px; margin-top:6px; }
+  .cell { text-align:center; font-size:9px; padding:3px; border:1px solid #eee; }
+  .ok { background:#e9f7ec; }
+  .late1 { background:#fff4d6; }
+  .late2 { background:#ffe6d6; }
+  .late3 { background:#ffd1d6; }
+  .miss { background:#f8d7da; }
+  .small { font-size:10px; color:#666; }
+  .glossary { font-size:10px; color:#333; }
+  .footer { font-size:10px; color:#666; text-align:center; margin-top:10px; }
+  .page-break { page-break-before: always; }
+</style>
+</head>
+<body>
+<div class="watermark">SAMPLE - DEMO</div>
+
+<!-- Cover page -->
+<div style="text-align:left;">
+  <div class="header">
+    <div>
+      <div style="font-weight:700;">Demo Credit Bureau — Consumer Credit Report (SAMPLE)</div>
+      <div class="muted">Report ID: DCR-20251007-FULL-001 • Generated: 07 Oct 2025 23:47</div>
+    </div>
+    <div class="muted">For demonstration only — not a real bureau file</div>
+  </div>
+
+  <h1>Credit Summary</h1>
+
+  <div class="score-box">
+    <div>
+      <div class="small">Credit score</div>
+      <div class="score-num">702 <span style="font-size:14px;">/ 999</span></div>
+      <div class="muted">Band: <strong>Fair</strong> • Percentile: 58%</div>
+    </div>
+    <div class="score-bars">
+      <div class="small">Score range</div>
+      <div class="barwrap">
+        <div class="bar" style="width:70.27027027027027%"></div>
+      </div>
+      <div class="small" style="margin-top:6px;">Accounts are generally well maintained. Moderate utilisation and an isolated late payment.</div>
+      <div class="small">Key score factors:</div>
+      <ul class="small">
+        <li>Short overall credit history (&lt;3 years)</li><li>One recent 30-day late payment</li><li>Moderate utilisation (~44%)</li><li>Stable employment and address history</li>
+      </ul>
+    </div>
+  </div>
+
+  <div style="margin-top:10px;">
+    <div class="small">12-month score history</div>
+    <div class="sparkline">
+      
+        <div style="height: 27.227227227227225px" title="Nov: 680"></div>
+      
+        <div style="height: 27.30730730730731px" title="Dec: 682"></div>
+      
+        <div style="height: 27.38738738738739px" title="Jan: 684"></div>
+      
+        <div style="height: 27.467467467467465px" title="Feb: 686"></div>
+      
+        <div style="height: 27.54754754754755px" title="Mar: 688"></div>
+      
+        <div style="height: 27.627627627627625px" title="Apr: 690"></div>
+      
+        <div style="height: 27.70770770770771px" title="May: 692"></div>
+      
+        <div style="height: 27.78778778778779px" title="Jun: 694"></div>
+      
+        <div style="height: 27.867867867867865px" title="Jul: 696"></div>
+      
+        <div style="height: 27.94794794794795px" title="Aug: 698"></div>
+      
+        <div style="height: 28.028028028028025px" title="Sep: 700"></div>
+      
+        <div style="height: 28.10810810810811px" title="Oct: 702"></div>
+      
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Key statistics</h2>
+    <table>
+      <tr>
+        <th>Total open accounts</th><td class="right">7</td>
+        <th>Total closed accounts (last 2 years)</th><td class="right">3</td>
+      </tr>
+      <tr>
+        <th>Total credit limit (£)</th><td class="right">£12000</td>
+        <th>Total outstanding balance (£)</th><td class="right">£5320</td>
+      </tr>
+      <tr>
+        <th>Overall utilisation</th><td class="right">44%</td>
+        <th>On-time payment rate</th><td class="right">96%</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Consumer details</h2>
+    <table>
+      <tr><th>Full name</th><td>Avery J. Morgan</td><th>Date of birth</th><td>1993-04-18</td></tr>
+      <tr><th>Current address</th><td colspan="3">12 Demo Lane, Brixton, London, SW9 0DE</td></tr>
+      <tr><th>Employer</th><td>Acme Lending Ltd (SAMPLE)</td><th>Time in employment</th><td>2 years, 7 months</td></tr>
+      <tr><th>Electoral roll</th><td>Confirmed at current address</td><th>Linked addresses</th><td>2</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- Accounts (each account may expand to its own area) -->
+
+  <div class="section">
+    <div class="account-header">
+      <strong>Demo Lender 1</strong> — <span class="small">Mortgage</span>
+      <div class="muted" style="float:right;">Opened: 06 Nov 2021 • Status: Open — Current</div>
+      <div class="small" style="margin-top:6px;">Account reference: ACC-1001 • Terms: Representative APR varies</div>
+    </div>
+    <table>
+      <tr><th>Limit (£)</th><td class="right">205682</td><th>Current balance (£)</th><td class="right">2039</td></tr>
+      <tr><th>High balance (£)</th><td class="right">2163</td><th>Monthly repayment</th><td class="right">185</td></tr>
+    </table>
+
+    <div style="margin-top:8px;">
+      <div class="small">24-month payment history (most recent month on the right)</div>
+      <div class="payment-grid">
+        
+          <div class="cell ok" title="Oct 23 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Nov 23 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Dec 23 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Jan 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Feb 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Mar 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Apr 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="May 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Jun 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Jul 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Aug 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Sep 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Oct 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Nov 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Dec 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Jan 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Feb 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Mar 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Apr 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="May 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell late2" title="Jun 25 2">
+            2
+          </div>
+        
+          <div class="cell ok" title="Jul 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Aug 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Sep 25 OK">
+            ✔
+          </div>
+        
+      </div>
+      <div class="small" style="margin-top:6px;">Legend: ✔ = on-time, 1 = 30 days late, 2 = 60 days, 3 = 90+ days, ✖ = default/missed</div>
+    </div>
+
+    <div style="margin-top:8px;">
+      <div class="small">Notes:</div>
+      <div class="small">Recent increase in balance due to seasonal spending.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="account-header">
+      <strong>Demo Lender 2</strong> — <span class="small">Mortgage</span>
+      <div class="muted" style="float:right;">Opened: 19 Aug 2022 • Status: Open — Current</div>
+      <div class="small" style="margin-top:6px;">Account reference: ACC-1002 • Terms: Representative APR varies</div>
+    </div>
+    <table>
+      <tr><th>Limit (£)</th><td class="right">64715</td><th>Current balance (£)</th><td class="right">0</td></tr>
+      <tr><th>High balance (£)</th><td class="right">1596</td><th>Monthly repayment</th><td class="right">109</td></tr>
+    </table>
+
+    <div style="margin-top:8px;">
+      <div class="small">24-month payment history (most recent month on the right)</div>
+      <div class="payment-grid">
+        
+          <div class="cell ok" title="Oct 23 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Nov 23 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Dec 23 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Jan 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Feb 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Mar 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell late1" title="Apr 24 1">
+            1
+          </div>
+        
+          <div class="cell ok" title="May 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Jun 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Jul 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Aug 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Sep 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Oct 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Nov 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Dec 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Jan 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Feb 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Mar 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Apr 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="May 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Jun 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Jul 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell miss" title="Aug 25 M">
+            ✖
+          </div>
+        
+          <div class="cell ok" title="Sep 25 OK">
+            ✔
+          </div>
+        
+      </div>
+      <div class="small" style="margin-top:6px;">Legend: ✔ = on-time, 1 = 30 days late, 2 = 60 days, 3 = 90+ days, ✖ = default/missed</div>
+    </div>
+
+    <div style="margin-top:8px;">
+      <div class="small">Notes:</div>
+      <div class="small">Low utilisation and account in good standing.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="account-header">
+      <strong>Demo Lender 3</strong> — <span class="small">Store Card</span>
+      <div class="muted" style="float:right;">Opened: 05 Sep 2024 • Status: Open — Current</div>
+      <div class="small" style="margin-top:6px;">Account reference: ACC-1003 • Terms: Representative APR varies</div>
+    </div>
+    <table>
+      <tr><th>Limit (£)</th><td class="right">3783</td><th>Current balance (£)</th><td class="right">0</td></tr>
+      <tr><th>High balance (£)</th><td class="right">934</td><th>Monthly repayment</th><td class="right">167</td></tr>
+    </table>
+
+    <div style="margin-top:8px;">
+      <div class="small">24-month payment history (most recent month on the right)</div>
+      <div class="payment-grid">
+        
+          <div class="cell ok" title="Oct 23 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Nov 23 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Dec 23 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Jan 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Feb 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Mar 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Apr 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="May 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Jun 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Jul 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Aug 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Sep 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Oct 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Nov 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Dec 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell late1" title="Jan 25 1">
+            1
+          </div>
+        
+          <div class="cell ok" title="Feb 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Mar 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Apr 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell late1" title="May 25 1">
+            1
+          </div>
+        
+          <div class="cell ok" title="Jun 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Jul 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Aug 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Sep 25 OK">
+            ✔
+          </div>
+        
+      </div>
+      <div class="small" style="margin-top:6px;">Legend: ✔ = on-time, 1 = 30 days late, 2 = 60 days, 3 = 90+ days, ✖ = default/missed</div>
+    </div>
+
+    <div style="margin-top:8px;">
+      <div class="small">Notes:</div>
+      <div class="small">Low utilisation and account in good standing.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="account-header">
+      <strong>Demo Lender 4</strong> — <span class="small">Car Finance</span>
+      <div class="muted" style="float:right;">Opened: 21 Dec 2020 • Status: Open — Paying as agreed</div>
+      <div class="small" style="margin-top:6px;">Account reference: ACC-1004 • Terms: Representative APR varies</div>
+    </div>
+    <table>
+      <tr><th>Limit (£)</th><td class="right">10401</td><th>Current balance (£)</th><td class="right">3982</td></tr>
+      <tr><th>High balance (£)</th><td class="right">4903</td><th>Monthly repayment</th><td class="right">409</td></tr>
+    </table>
+
+    <div style="margin-top:8px;">
+      <div class="small">24-month payment history (most recent month on the right)</div>
+      <div class="payment-grid">
+        
+          <div class="cell miss" title="Oct 23 M">
+            ✖
+          </div>
+        
+          <div class="cell ok" title="Nov 23 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Dec 23 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Jan 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Feb 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Mar 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Apr 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="May 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Jun 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Jul 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell late1" title="Aug 24 1">
+            1
+          </div>
+        
+          <div class="cell ok" title="Sep 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Oct 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Nov 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell late1" title="Dec 24 1">
+            1
+          </div>
+        
+          <div class="cell ok" title="Jan 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Feb 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Mar 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Apr 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="May 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Jun 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Jul 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Aug 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Sep 25 OK">
+            ✔
+          </div>
+        
+      </div>
+      <div class="small" style="margin-top:6px;">Legend: ✔ = on-time, 1 = 30 days late, 2 = 60 days, 3 = 90+ days, ✖ = default/missed</div>
+    </div>
+
+    <div style="margin-top:8px;">
+      <div class="small">Notes:</div>
+      <div class="small">Recent increase in balance due to seasonal spending.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="account-header">
+      <strong>Demo Lender 5</strong> — <span class="small">Store Card</span>
+      <div class="muted" style="float:right;">Opened: 23 Jan 2021 • Status: Open — Low utilisation</div>
+      <div class="small" style="margin-top:6px;">Account reference: ACC-1005 • Terms: Representative APR varies</div>
+    </div>
+    <table>
+      <tr><th>Limit (£)</th><td class="right">1450</td><th>Current balance (£)</th><td class="right">2602</td></tr>
+      <tr><th>High balance (£)</th><td class="right">4572</td><th>Monthly repayment</th><td class="right">350</td></tr>
+    </table>
+
+    <div style="margin-top:8px;">
+      <div class="small">24-month payment history (most recent month on the right)</div>
+      <div class="payment-grid">
+        
+          <div class="cell late2" title="Oct 23 2">
+            2
+          </div>
+        
+          <div class="cell ok" title="Nov 23 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Dec 23 OK">
+            ✔
+          </div>
+        
+          <div class="cell late1" title="Jan 24 1">
+            1
+          </div>
+        
+          <div class="cell ok" title="Feb 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Mar 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Apr 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="May 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Jun 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Jul 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Aug 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Sep 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Oct 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell late1" title="Nov 24 1">
+            1
+          </div>
+        
+          <div class="cell ok" title="Dec 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Jan 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Feb 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Mar 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell late2" title="Apr 25 2">
+            2
+          </div>
+        
+          <div class="cell late1" title="May 25 1">
+            1
+          </div>
+        
+          <div class="cell ok" title="Jun 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Jul 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Aug 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Sep 25 OK">
+            ✔
+          </div>
+        
+      </div>
+      <div class="small" style="margin-top:6px;">Legend: ✔ = on-time, 1 = 30 days late, 2 = 60 days, 3 = 90+ days, ✖ = default/missed</div>
+    </div>
+
+    <div style="margin-top:8px;">
+      <div class="small">Notes:</div>
+      <div class="small">Low utilisation and account in good standing.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="account-header">
+      <strong>Demo Lender 6</strong> — <span class="small">Credit Card</span>
+      <div class="muted" style="float:right;">Opened: 10 Jan 2024 • Status: Open — Current</div>
+      <div class="small" style="margin-top:6px;">Account reference: ACC-1006 • Terms: Representative APR varies</div>
+    </div>
+    <table>
+      <tr><th>Limit (£)</th><td class="right">2803</td><th>Current balance (£)</th><td class="right">1495</td></tr>
+      <tr><th>High balance (£)</th><td class="right">1783</td><th>Monthly repayment</th><td class="right">62</td></tr>
+    </table>
+
+    <div style="margin-top:8px;">
+      <div class="small">24-month payment history (most recent month on the right)</div>
+      <div class="payment-grid">
+        
+          <div class="cell ok" title="Oct 23 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Nov 23 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Dec 23 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Jan 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Feb 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Mar 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Apr 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="May 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Jun 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Jul 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell late2" title="Aug 24 2">
+            2
+          </div>
+        
+          <div class="cell late2" title="Sep 24 2">
+            2
+          </div>
+        
+          <div class="cell ok" title="Oct 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Nov 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Dec 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Jan 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Feb 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Mar 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Apr 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="May 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Jun 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Jul 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Aug 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Sep 25 OK">
+            ✔
+          </div>
+        
+      </div>
+      <div class="small" style="margin-top:6px;">Legend: ✔ = on-time, 1 = 30 days late, 2 = 60 days, 3 = 90+ days, ✖ = default/missed</div>
+    </div>
+
+    <div style="margin-top:8px;">
+      <div class="small">Notes:</div>
+      <div class="small">Low utilisation and account in good standing.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="account-header">
+      <strong>Demo Lender 7</strong> — <span class="small">Student Loan</span>
+      <div class="muted" style="float:right;">Opened: 11 Dec 2023 • Status: Open — Low utilisation</div>
+      <div class="small" style="margin-top:6px;">Account reference: ACC-1007 • Terms: Representative APR varies</div>
+    </div>
+    <table>
+      <tr><th>Limit (£)</th><td class="right">—</td><th>Current balance (£)</th><td class="right">1604</td></tr>
+      <tr><th>High balance (£)</th><td class="right">2751</td><th>Monthly repayment</th><td class="right">349</td></tr>
+    </table>
+
+    <div style="margin-top:8px;">
+      <div class="small">24-month payment history (most recent month on the right)</div>
+      <div class="payment-grid">
+        
+          <div class="cell ok" title="Oct 23 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Nov 23 OK">
+            ✔
+          </div>
+        
+          <div class="cell late1" title="Dec 23 1">
+            1
+          </div>
+        
+          <div class="cell ok" title="Jan 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Feb 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Mar 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Apr 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="May 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Jun 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Jul 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Aug 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Sep 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Oct 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell late1" title="Nov 24 1">
+            1
+          </div>
+        
+          <div class="cell ok" title="Dec 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Jan 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Feb 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Mar 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Apr 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="May 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Jun 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Jul 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Aug 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Sep 25 OK">
+            ✔
+          </div>
+        
+      </div>
+      <div class="small" style="margin-top:6px;">Legend: ✔ = on-time, 1 = 30 days late, 2 = 60 days, 3 = 90+ days, ✖ = default/missed</div>
+    </div>
+
+    <div style="margin-top:8px;">
+      <div class="small">Notes:</div>
+      <div class="small">Account under promotional rate; normal payments in place.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="account-header">
+      <strong>Demo Lender 8</strong> — <span class="small">Personal Loan</span>
+      <div class="muted" style="float:right;">Opened: 14 Jun 2023 • Status: Open — Low utilisation</div>
+      <div class="small" style="margin-top:6px;">Account reference: ACC-1008 • Terms: Representative APR varies</div>
+    </div>
+    <table>
+      <tr><th>Limit (£)</th><td class="right">10190</td><th>Current balance (£)</th><td class="right">1714</td></tr>
+      <tr><th>High balance (£)</th><td class="right">2196</td><th>Monthly repayment</th><td class="right">314</td></tr>
+    </table>
+
+    <div style="margin-top:8px;">
+      <div class="small">24-month payment history (most recent month on the right)</div>
+      <div class="payment-grid">
+        
+          <div class="cell late1" title="Oct 23 1">
+            1
+          </div>
+        
+          <div class="cell ok" title="Nov 23 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Dec 23 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Jan 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Feb 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Mar 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Apr 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="May 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Jun 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Jul 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Aug 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Sep 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Oct 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Nov 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Dec 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Jan 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Feb 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Mar 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Apr 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="May 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Jun 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Jul 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Aug 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Sep 25 OK">
+            ✔
+          </div>
+        
+      </div>
+      <div class="small" style="margin-top:6px;">Legend: ✔ = on-time, 1 = 30 days late, 2 = 60 days, 3 = 90+ days, ✖ = default/missed</div>
+    </div>
+
+    <div style="margin-top:8px;">
+      <div class="small">Notes:</div>
+      <div class="small">Low utilisation and account in good standing.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="account-header">
+      <strong>Demo Lender 9</strong> — <span class="small">Student Loan</span>
+      <div class="muted" style="float:right;">Opened: 20 Jan 2023 • Status: Open — Paying as agreed</div>
+      <div class="small" style="margin-top:6px;">Account reference: ACC-1009 • Terms: Representative APR varies</div>
+    </div>
+    <table>
+      <tr><th>Limit (£)</th><td class="right">—</td><th>Current balance (£)</th><td class="right">1882</td></tr>
+      <tr><th>High balance (£)</th><td class="right">3372</td><th>Monthly repayment</th><td class="right">296</td></tr>
+    </table>
+
+    <div style="margin-top:8px;">
+      <div class="small">24-month payment history (most recent month on the right)</div>
+      <div class="payment-grid">
+        
+          <div class="cell ok" title="Oct 23 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Nov 23 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Dec 23 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Jan 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Feb 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Mar 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Apr 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell miss" title="May 24 M">
+            ✖
+          </div>
+        
+          <div class="cell ok" title="Jun 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Jul 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Aug 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Sep 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Oct 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Nov 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Dec 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Jan 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Feb 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Mar 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell miss" title="Apr 25 M">
+            ✖
+          </div>
+        
+          <div class="cell late1" title="May 25 1">
+            1
+          </div>
+        
+          <div class="cell ok" title="Jun 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Jul 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Aug 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Sep 25 OK">
+            ✔
+          </div>
+        
+      </div>
+      <div class="small" style="margin-top:6px;">Legend: ✔ = on-time, 1 = 30 days late, 2 = 60 days, 3 = 90+ days, ✖ = default/missed</div>
+    </div>
+
+    <div style="margin-top:8px;">
+      <div class="small">Notes:</div>
+      <div class="small">Recent increase in balance due to seasonal spending.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="account-header">
+      <strong>Demo Lender 10</strong> — <span class="small">Car Finance</span>
+      <div class="muted" style="float:right;">Opened: 01 Aug 2024 • Status: Open — Current</div>
+      <div class="small" style="margin-top:6px;">Account reference: ACC-1010 • Terms: Representative APR varies</div>
+    </div>
+    <table>
+      <tr><th>Limit (£)</th><td class="right">39004</td><th>Current balance (£)</th><td class="right">0</td></tr>
+      <tr><th>High balance (£)</th><td class="right">908</td><th>Monthly repayment</th><td class="right">48</td></tr>
+    </table>
+
+    <div style="margin-top:8px;">
+      <div class="small">24-month payment history (most recent month on the right)</div>
+      <div class="payment-grid">
+        
+          <div class="cell ok" title="Oct 23 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Nov 23 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Dec 23 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Jan 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Feb 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Mar 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Apr 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="May 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Jun 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Jul 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Aug 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Sep 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Oct 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Nov 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Dec 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Jan 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Feb 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Mar 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Apr 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="May 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Jun 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell miss" title="Jul 25 M">
+            ✖
+          </div>
+        
+          <div class="cell ok" title="Aug 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Sep 25 OK">
+            ✔
+          </div>
+        
+      </div>
+      <div class="small" style="margin-top:6px;">Legend: ✔ = on-time, 1 = 30 days late, 2 = 60 days, 3 = 90+ days, ✖ = default/missed</div>
+    </div>
+
+    <div style="margin-top:8px;">
+      <div class="small">Notes:</div>
+      <div class="small">Low utilisation and account in good standing.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="account-header">
+      <strong>Demo Lender 11</strong> — <span class="small">Personal Loan</span>
+      <div class="muted" style="float:right;">Opened: 25 May 2021 • Status: Open — Paying as agreed</div>
+      <div class="small" style="margin-top:6px;">Account reference: ACC-1011 • Terms: Representative APR varies</div>
+    </div>
+    <table>
+      <tr><th>Limit (£)</th><td class="right">9449</td><th>Current balance (£)</th><td class="right">200</td></tr>
+      <tr><th>High balance (£)</th><td class="right">1643</td><th>Monthly repayment</th><td class="right">251</td></tr>
+    </table>
+
+    <div style="margin-top:8px;">
+      <div class="small">24-month payment history (most recent month on the right)</div>
+      <div class="payment-grid">
+        
+          <div class="cell ok" title="Oct 23 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Nov 23 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Dec 23 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Jan 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Feb 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Mar 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Apr 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="May 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Jun 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Jul 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Aug 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Sep 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Oct 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Nov 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Dec 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Jan 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Feb 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell miss" title="Mar 25 M">
+            ✖
+          </div>
+        
+          <div class="cell ok" title="Apr 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell late1" title="May 25 1">
+            1
+          </div>
+        
+          <div class="cell ok" title="Jun 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Jul 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Aug 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Sep 25 OK">
+            ✔
+          </div>
+        
+      </div>
+      <div class="small" style="margin-top:6px;">Legend: ✔ = on-time, 1 = 30 days late, 2 = 60 days, 3 = 90+ days, ✖ = default/missed</div>
+    </div>
+
+    <div style="margin-top:8px;">
+      <div class="small">Notes:</div>
+      <div class="small">Recent increase in balance due to seasonal spending.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="account-header">
+      <strong>Demo Lender 12</strong> — <span class="small">Current Account (Overdraft)</span>
+      <div class="muted" style="float:right;">Opened: 08 May 2024 • Status: Open — Current</div>
+      <div class="small" style="margin-top:6px;">Account reference: ACC-1012 • Terms: Representative APR varies</div>
+    </div>
+    <table>
+      <tr><th>Limit (£)</th><td class="right">2857</td><th>Current balance (£)</th><td class="right">605</td></tr>
+      <tr><th>High balance (£)</th><td class="right">2438</td><th>Monthly repayment</th><td class="right">311</td></tr>
+    </table>
+
+    <div style="margin-top:8px;">
+      <div class="small">24-month payment history (most recent month on the right)</div>
+      <div class="payment-grid">
+        
+          <div class="cell ok" title="Oct 23 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Nov 23 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Dec 23 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Jan 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Feb 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Mar 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Apr 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="May 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell late1" title="Jun 24 1">
+            1
+          </div>
+        
+          <div class="cell ok" title="Jul 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Aug 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Sep 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Oct 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell miss" title="Nov 24 M">
+            ✖
+          </div>
+        
+          <div class="cell ok" title="Dec 24 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Jan 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Feb 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Mar 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Apr 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="May 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Jun 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Jul 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Aug 25 OK">
+            ✔
+          </div>
+        
+          <div class="cell ok" title="Sep 25 OK">
+            ✔
+          </div>
+        
+      </div>
+      <div class="small" style="margin-top:6px;">Legend: ✔ = on-time, 1 = 30 days late, 2 = 60 days, 3 = 90+ days, ✖ = default/missed</div>
+    </div>
+
+    <div style="margin-top:8px;">
+      <div class="small">Notes:</div>
+      <div class="small">Low utilisation and account in good standing.</div>
+    </div>
+  </div>
+
+
+<div class="page-break"></div>
+
+<!-- Closed accounts -->
+<h2>Closed accounts</h2>
+<table>
+  <thead><tr><th>Creditor</th><th>Type</th><th>Opened</th><th>Closed</th><th>Status</th><th>Settlement</th></tr></thead>
+  <tbody>
+    
+      <tr>
+        <td>Retail Store Ltd</td><td>Store Card</td><td>05 Feb 2017</td><td>09 Jan 2021</td><td>Settled</td><td>Paid in full</td>
+      </tr>
+    
+      <tr>
+        <td>Old Bank Plc</td><td>Current Account</td><td>01 Mar 2012</td><td>01 Jul 2019</td><td>Closed by customer</td><td>N/A</td>
+      </tr>
+    
+      <tr>
+        <td>Short Term Lender</td><td>Payday loan</td><td>12 Jan 2018</td><td>10 Mar 2018</td><td>Settled</td><td>Paid</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+<div class="section">
+  <h2>Public records & enforcement</h2>
+  
+    <p class="muted">No public records (CCJs, bankruptcies, IVAs) found in the reporting period.</p>
+  
+</div>
+
+<h2>Recent credit searches</h2>
+<table>
+  <thead><tr><th>Date</th><th>Organisation</th><th>Purpose</th></tr></thead>
+  <tbody>
+    
+      <tr><td>26 Sep 2025</td><td>Acme Lending Ltd</td><td>Affordability check</td></tr>
+    
+      <tr><td>03 Jun 2025</td><td>TelecomsCo</td><td>New contract</td></tr>
+    
+      <tr><td>12 Jan 2025</td><td>InsuranceCo</td><td>Quote</td></tr>
+    
+  </tbody>
+</table>
+
+<div class="section">
+  <h2>Financial associations</h2>
+  
+    <table>
+      <thead><tr><th>Name</th><th>Relation</th><th>Associated accounts</th><th>Status</th></tr></thead>
+      <tbody>
+        
+          <tr><td>Jamie Morgan</td><td>Spouse</td><td>Joint mortgage with Demo Mortgage Bank</td><td>Active</td></tr>
+        
+      </tbody>
+    </table>
+  
+</div>
+
+<div class="section">
+  <h2>Risk narrative</h2>
+  <p>The subject presents a moderate risk profile. Overall credit utilisation is approximately 44%. Payment history shows a predominance of on-time payments across accounts, with isolated late payments. No active public records recorded. The main contributors to the score are short credit history and recent credit activity.</p>
+</div>
+
+<div class="page-break"></div>
+
+<!-- Appendix -->
+<h2>Glossary & How to read this report</h2>
+<div class="glossary">
+  <p><strong>Score:</strong> Numeric value representing the bureau's assessment of risk (higher = lower risk).</p>
+  <p><strong>Utilisation:</strong> Total revolving balances divided by total revolving limits (expressed as %).</p>
+  <p><strong>Payment history:</strong> A 24-month grid showing on-time/late payments for each account. Repeated late payments and missed payments increase risk.</p>
+  <p><strong>Public records:</strong> County Court Judgements (CCJs), bankruptcy orders, Individual Voluntary Arrangements (IVAs) or similar legal filings.</p>
+  <p><strong>How to dispute:</strong> This is a synthetic demo. In a real report contact the data provider or the creditor listed for that account.</p>
+</div>
+
+<div class="footer">SAMPLE synthetic credit report — Demo Credit Bureau. Not a real consumer credit file.</div>
+</body>
+</html>

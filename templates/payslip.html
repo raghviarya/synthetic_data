@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+  @page { size: A4; margin: 20mm; }
+  body { font-family: "DejaVu Sans", Arial, sans-serif; color:#222; font-size:12px; }
+  h1 { font-size:18px; margin-bottom:0; }
+  .header { background:#1E5AA0; color:#fff; padding:10px 16px; border-radius:4px; margin-bottom:12px; }
+  .two-col { display:flex; justify-content:space-between; margin-bottom:10px; }
+  .section { margin-top:16px; }
+  table { width:100%; border-collapse:collapse; margin-top:6px; }
+  th, td { border:1px solid #ddd; padding:6px; text-align:left; }
+  th { background:#f0f6fb; color:#214a6e; }
+  .right { text-align:right; }
+  .footer { font-size:10px; color:#777; margin-top:16px; }
+  .watermark { position:fixed; top:40%; left:-10%; transform:rotate(-25deg); font-size:56px; color:rgba(200,200,200,0.25); z-index:-1; }
+</style>
+</head>
+<body>
+<div class="watermark">SAMPLE - DEMO</div>
+
+<div class="header">
+  <strong>{{employer}}</strong>
+  <span style="float:right;">PAYSLIP</span>
+</div>
+
+<div class="two-col">
+  <div>
+    <strong>{{employee_name}}</strong><br>
+    {{employee_address}}<br>
+    NI Number: {{ni_number}}<br>
+    NI Category: {{ni_category}}<br>
+    Employee ID: {{employee_id}}
+  </div>
+  <div>
+    <strong>Paid by:</strong><br>
+    {{employer}}<br>
+    Tax Code: {{tax_code}}<br>
+    Tax Basis: {{tax_basis}}<br>
+    Pay Period: {{pay_period}} (Tax Month {{tax_month}})<br>
+    Payment Date: {{payment_date}}
+  </div>
+</div>
+
+<div class="section">
+  <table>
+    <tr><th>Gross Pay</th><td class="right">£{{gross_pay}}</td></tr>
+    <tr><th>Net Pay</th><td class="right">£{{net_pay}}</td></tr>
+    <tr><th>Total Pay (this period)</th><td class="right">£{{total_pay}}</td></tr>
+  </table>
+</div>
+
+<div class="section">
+  <h2>Earnings</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Description</th><th class="right">Quantity</th><th class="right">Rate</th><th class="right">This Pay (£)</th><th class="right">YTD (£)</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for e in earnings %}
+      <tr>
+        <td>{{e.description}}</td>
+        <td class="right">{{e.quantity}}</td>
+        <td class="right">{{e.rate}}</td>
+        <td class="right">{{e.amount_this}}</td>
+        <td class="right">{{e.amount_ytd}}</td>
+      </tr>
+      {% endfor %}
+      <tr><th colspan="3" class="right">TOTAL</th><th class="right">{{total_earnings}}</th><th class="right">{{total_earnings_ytd}}</th></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="section">
+  <h2>Deductions</h2>
+  <table>
+    <thead><tr><th>Description</th><th class="right">This Pay (£)</th><th class="right">YTD (£)</th></tr></thead>
+    <tbody>
+      {% for d in deductions %}
+      <tr>
+        <td>{{d.description}}</td>
+        <td class="right">{{d.amount_this}}</td>
+        <td class="right">{{d.amount_ytd}}</td>
+      </tr>
+      {% endfor %}
+      <tr><th class="right">TOTAL</th><th class="right">{{total_deductions}}</th><th class="right">{{total_deductions_ytd}}</th></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="section">
+  <h2>Payment Details</h2>
+  <table>
+    <tr><th>Method</th><th class="right">Amount (£)</th></tr>
+    <tr><td>Electronic Transfer</td><td class="right">{{net_pay}}</td></tr>
+  </table>
+</div>
+
+<div class="section">
+  <h2>Employer Contributions</h2>
+  <table>
+    <thead><tr><th>Description</th><th class="right">This Pay (£)</th><th class="right">YTD (£)</th></tr></thead>
+    <tbody>
+      {% for c in contributions %}
+      <tr>
+        <td>{{c.description}}</td>
+        <td class="right">{{c.amount_this}}</td>
+        <td class="right">{{c.amount_ytd}}</td>
+      </tr>
+      {% endfor %}
+      <tr><th class="right">TOTAL</th><th class="right">{{total_contrib}}</th><th class="right">{{total_contrib_ytd}}</th></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="footer">
+  This is a SAMPLE payslip for demonstration only. It does not represent a real payment or employment record.
+</div>
+
+</body>
+</html>

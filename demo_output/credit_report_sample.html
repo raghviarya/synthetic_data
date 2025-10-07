@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+  @page { size: A4; margin: 15mm; }
+  body { font-family: "DejaVu Sans", Arial, sans-serif; color:#222; font-size:11.5px; }
+  h1, h2, h3 { color:#1E5AA0; margin-bottom:4px; }
+  h1 { font-size:18px; }
+  h2 { font-size:14px; border-bottom:1px solid #ccc; padding-bottom:2px; margin-top:12px; }
+  .muted { color:#666; font-size:10.5px; }
+  table { width:100%; border-collapse:collapse; margin-top:6px; }
+  th, td { border:1px solid #ddd; padding:5px; text-align:left; vertical-align:top; }
+  th { background:#f6f9fc; color:#1E5AA0; }
+  .right { text-align:right; }
+  .ok { background:#e8f7ea; }
+  .late { background:#fff3cd; }
+  .miss { background:#f8d7da; }
+  .barwrap { background:#e9ecef; height:10px; border-radius:5px; overflow:hidden; }
+  .bar { height:100%; background:linear-gradient(90deg,#d9534f,#f0ad4e,#5cb85c); }
+  .grid24 { display:grid; grid-template-columns: repeat(24,1fr); gap:1px; }
+  .cell { text-align:center; font-size:9px; padding:2px; border:1px solid #eee; }
+  .watermark { position: fixed; top:45%; left:-10%; transform:rotate(-25deg); color:rgba(200,200,200,0.25); font-size:60px; z-index:-1; }
+  .section { page-break-inside:avoid; margin-bottom:12px; }
+  .footer { font-size:10px; color:#777; text-align:center; margin-top:16px; }
+</style>
+</head>
+<body>
+<div class="watermark">SAMPLE - DEMO</div>
+
+<h1>Demo Credit Bureau — Consumer Credit Report</h1>
+<p class="muted">Report ID: {{report_id}} | Generated: {{report_datetime}}</p>
+
+<!-- Score -->
+<h2>Credit Score Overview</h2>
+<table>
+  <tr>
+    <th>Score</th><td><strong>{{score}}</strong> / {{score_max}}</td>
+    <th>Band</th><td>{{band}}</td>
+    <th>Percentile</th><td>{{percentile}}%</td>
+  </tr>
+  <tr>
+    <th>Interpretation</th><td colspan="5">{{score_comment}}</td>
+  </tr>
+</table>
+<div class="muted">Factors affecting your score:</div>
+<ul>
+  {% for f in score_factors %}<li>{{f}}</li>{% endfor %}
+</ul>
+
+<!-- Identity verification -->
+<h2>Identity & Verification</h2>
+<table>
+  <tr><th>Full name</th><td>{{full_name}}</td><th>Date of birth</th><td>{{dob}}</td></tr>
+  <tr><th>Address</th><td colspan="3">{{address}}</td></tr>
+  <tr><th>Postcode</th><td>{{postcode}}</td><th>National ID</th><td>{{nino}}</td></tr>
+  <tr><th>Electoral roll confirmed</th><td>{{electoral_roll}}</td><th>Time at address</th><td>{{address_tenure}}</td></tr>
+</table>
+
+<!-- Financial associations -->
+<h2>Financial Associations</h2>
+{% if financial_associations|length == 0 %}
+<p class="muted">No financial associates found.</p>
+{% else %}
+<table>
+  <thead><tr><th>Name</th><th>Relation</th><th>Shared account</th><th>Status</th></tr></thead>
+  <tbody>
+  {% for a in financial_associations %}
+    <tr><td>{{a.name}}</td><td>{{a.relation}}</td><td>{{a.account}}</td><td>{{a.status}}</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+
+<!-- Utilisation summary -->
+<h2>Credit Utilisation Summary</h2>
+<table>
+  <tr><th>Total credit limit</th><td class="right">£{{total_limit}}</td><th>Total balance</th><td class="right">£{{total_balance}}</td></tr>
+  <tr><th>Overall utilisation</th><td colspan="3">
+    <div class="barwrap"><div class="bar" style="width:{{utilisation}}%;"></div></div>
+    {{utilisation}}%
+  </td></tr>
+  <tr><th>Average account age</th><td>{{avg_account_age}}</td><th>On-time payment rate</th><td>{{on_time_rate}}%</td></tr>
+</table>
+
+<!-- Active accounts -->
+<h2>Open Credit Accounts</h2>
+<table>
+  <thead>
+    <tr><th>Creditor</th><th>Type</th><th>Opened</th><th>Limit (£)</th><th>Balance (£)</th><th>High balance (£)</th><th>Status</th><th>24-month Payment History</th></tr>
+  </thead>
+  <tbody>
+  {% for a in open_accounts %}
+    <tr>
+      <td>{{a.creditor}}</td><td>{{a.type}}</td><td>{{a.opened}}</td>
+      <td class="right">{{a.limit}}</td><td class="right">{{a.balance}}</td>
+      <td class="right">{{a.high_balance}}</td><td>{{a.status}}</td>
+      <td><div class="grid24">
+        {% for m in a.history %}
+          <div class="cell {{m.cls}}" title="{{m.label}}">{{m.txt}}</div>
+        {% endfor %}
+      </div></td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+<!-- Closed accounts -->
+<h2>Closed Accounts</h2>
+<table>
+  <thead><tr><th>Creditor</th><th>Type</th><th>Opened</th><th>Closed</th><th>Status</th><th>Settlement</th></tr></thead>
+  <tbody>
+  {% for a in closed_accounts %}
+    <tr><td>{{a.creditor}}</td><td>{{a.type}}</td><td>{{a.opened}}</td><td>{{a.closed}}</td><td>{{a.status}}</td><td>{{a.settlement}}</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+<!-- Defaults -->
+<h2>Default & Delinquency Summary</h2>
+<table>
+  <tr><th>Accounts with missed payments</th><td>{{missed_accounts}}</td><th>Most severe status</th><td>{{worst_status}}</td></tr>
+  <tr><th>Defaults in last 6 years</th><td>{{defaults}}</td><th>CCJs in last 6 years</th><td>{{ccjs}}</td></tr>
+</table>
+
+<!-- Public records -->
+<h2>Public Records</h2>
+{% if public_records|length == 0 %}
+<p class="muted">No public records found.</p>
+{% else %}
+<table>
+  <thead><tr><th>Type</th><th>Date</th><th>Court</th><th>Amount (£)</th><th>Status</th></tr></thead>
+  <tbody>
+  {% for r in public_records %}
+    <tr><td>{{r.type}}</td><td>{{r.date}}</td><td>{{r.court}}</td><td class="right">{{r.amount}}</td><td>{{r.status}}</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+
+<!-- Credit searches -->
+<h2>Credit Searches (last 12 months)</h2>
+<table>
+  <thead><tr><th>Date</th><th>Organisation</th><th>Purpose</th></tr></thead>
+  <tbody>
+  {% for s in searches %}
+    <tr><td>{{s.date}}</td><td>{{s.org}}</td><td>{{s.purpose}}</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+<!-- Linked addresses -->
+<h2>Linked Addresses</h2>
+<table>
+  <thead><tr><th>Address</th><th>From</th><th>To</th></tr></thead>
+  <tbody>
+  {% for la in linked_addresses %}
+    <tr><td>{{la.address}}</td><td>{{la.from}}</td><td>{{la.to}}</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+<!-- Score commentary -->
+<h2>Risk Narrative & Analysis</h2>
+<p>{{risk_summary}}</p>
+
+<div class="footer">SAMPLE document — for demonstration only. © Demo Credit Bureau 2025.</div>
+</body>
+</html>
